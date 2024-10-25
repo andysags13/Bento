@@ -11,10 +11,10 @@ const CONFIG = {
 	// └─┘┴ ┴└─┘┴└─┘└─┘
 
 	// General
-	name: 'John',
-	imageBackground: false,
+	name: localStorage.getItem('name') || 'guy',
+	imageBackground: true,
 	openInNewTab: true,
-	twelveHourFormat: false,
+	twelveHourFormat: localStorage.getItem('twelveHourFormat') === 'true',
 
 	// Greetings
 	greetingMorning: 'Good morning!',
@@ -42,7 +42,7 @@ const CONFIG = {
 	changeThemeByOS: true,
 
 	// Autochange by hour options (24hrs format, string must be in: hh:mm)
-	changeThemeByHour: false,
+	changeThemeByHour: true,
 	hourDarkThemeActive: '18:30',
 	hourDarkThemeInactive: '07:00',
 
@@ -54,38 +54,38 @@ const CONFIG = {
 		{
 			id: '1',
 			name: 'Github',
-			icon: 'github',
-			link: 'https://github.com/',
+			icon: localStorage.getItem(`icon1Name`) || 'github',
+			link: localStorage.getItem(`icon1Link`) || 'https://github.com/',
 		},
 		{
 			id: '2',
 			name: 'Mail',
-			icon: 'mail',
-			link: 'https://mail.protonmail.com/',
+			icon: localStorage.getItem(`icon2Name`) || 'mail',
+			link: localStorage.getItem(`icon2Link`) || 'https://outlook.com/',
 		},
 		{
 			id: '3',
 			name: 'Todoist',
-			icon: 'trello',
-			link: 'https://todoist.com',
+			icon: localStorage.getItem(`icon3Name`) || 'calendar-plus',
+			link: localStorage.getItem(`icon3Link`) || 'https://www.notion.so/',
 		},
 		{
 			id: '4',
-			name: 'Calendar',
-			icon: 'calendar',
-			link: 'https://calendar.google.com/calendar/r',
+			name: 'Intranet',
+			icon: localStorage.getItem(`icon4Name`) || 'graduation-cap',
+			link: localStorage.getItem(`icon4Link`) || 'https://intra.epitech.eu/',
 		},
 		{
 			id: '5',
-			name: 'Reddit',
-			icon: 'glasses',
-			link: 'https://reddit.com',
+			name: 'My_Epitech',
+			icon: localStorage.getItem(`icon5Name`) || 'disc',
+			link: localStorage.getItem(`icon5Link`) || 'https://my.epitech.eu/',
 		},
 		{
 			id: '6',
-			name: 'Odysee',
-			icon: 'youtube',
-			link: 'https://odysee.com/',
+			name: 'Youtube',
+			icon: localStorage.getItem(`icon6Name`) || 'youtube',
+			link: localStorage.getItem(`icon6Link`) || 'https://youtube.com/',
 		},
 	],
 
@@ -93,20 +93,20 @@ const CONFIG = {
 		{
 			id: '1',
 			name: 'Music',
-			icon: 'headphones',
-			link: 'https://open.spotify.com',
+			icon: localStorage.getItem(`icon7Name`) || 'headphones',
+			link: localStorage.getItem(`icon7Link`) || 'https://open.spotify.com',
 		},
 		{
 			id: '2',
 			name: 'twitter',
-			icon: 'twitter',
-			link: 'https://twitter.com/',
+			icon: localStorage.getItem(`icon8Name`) || 'twitter',
+			link: localStorage.getItem(`icon8Link`) || 'https://twitter.com/',
 		},
 		{
 			id: '3',
 			name: 'bot',
-			icon: 'bot',
-			link: 'https://discord.com/app',
+			icon: localStorage.getItem(`icon9Name`) || 'bot',
+			link: localStorage.getItem(`icon9Link`) || 'https://discord.com/app',
 		},
 		{
 			id: '4',
@@ -135,46 +135,46 @@ const CONFIG = {
 	// First Links Container
 	firstlistsContainer: [
 		{
-			icon: 'music',
+			icon: localStorage.getItem(`iconlist1Name`) || 'music',
 			id: '1',
 			links: [
 				{
-					name: 'Inspirational',
-					link: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+					name: localStorage.getItem(`iconlist1Link1Name1`) || 'New Gen Bénin 🇧🇯 ',
+					link: localStorage.getItem(`iconlist1Link1`) || 'https://open.spotify.com/playlist/01IQz6djth4BPsAYKDn8e3?si=Hzxa3yP2T4K_MEowkZmzXA',
 				},
 				{
-					name: 'Classic',
-					link: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+					name: localStorage.getItem(`iconlist1Link2Name2`) || 'Late Night Vibes',
+					link: localStorage.getItem(`iconlist1Link2`) || 'https://open.spotify.com/playlist/2DQ2KHEaZcT4IdcaXDSaag?si=84ad3b1b9f6a40c1',
 				},
 				{
-					name: 'Oldies',
-					link: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+					name: localStorage.getItem(`iconlist1Link3Name3`) || 'Sweet Afro_vibes',
+					link: localStorage.getItem(`iconlist1Link3`) || 'https://open.spotify.com/playlist/14mrd6kzGFXd1LL57oizMG?si=nyizLlzARJ-AXTqqQoscEQ',
 				},
 				{
-					name: 'Rock',
-					link: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+					name: localStorage.getItem(`iconlist1Link4Name4`) || 'Afropiano Vibes Only !',
+					link: localStorage.getItem(`iconlist1Link4`) || 'https://open.spotify.com/playlist/0aCBFNpLrqijpfgC12w0vb?si=279eaadb76594d76',
 				},
 			],
 		},
 		{
-			icon: 'coffee',
+			icon: localStorage.getItem(`iconlist2Name`) || 'coffee',
 			id: '2',
 			links: [
 				{
-					name: 'Linkedin',
-					link: 'https://www.linkedin.com',
+					name: localStorage.getItem(`iconlist2Link1Name1`) || 'Google',
+					link: localStorage.getItem(`iconlist2Link1`) || 'https://www.google.com/',
 				},
 				{
-					name: 'Dribbble',
-					link: 'https://www.dribbble.com',
+					name: localStorage.getItem(`iconlist2Link2Name2`) || 'Moodle',
+					link: localStorage.getItem(`iconlist2Link2`) || 'https://moodle.epitest.eu/login/index.php',
 				},
 				{
-					name: 'Trello',
-					link: 'https://www.trello.com',
+					name: localStorage.getItem(`iconlist2Link3Name3`) || 'Google Traduction',
+					link: localStorage.getItem(`iconlist2Link3`) || 'https://translate.google.com',
 				},
 				{
-					name: 'Slack',
-					link: 'https://www.slack.com',
+					name: localStorage.getItem(`iconlist2Link4Name4`) || 'Canva',
+					link: localStorage.getItem(`iconlist2Link4`) || 'https://www.canva.com/',
 				},
 			],
 		},

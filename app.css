@@ -26,7 +26,7 @@
   --cards: #e4e6e6; /* Cards color */
 
   /* Image background  */
-  --imgbg: url(assets/background.jpg); /* Image URL */
+  --imgbg: var(--imgbg-url, url(assets/background.jpg)); /* Image URL */
   --imgcol: linear-gradient(
     rgba(255, 255, 255, 0.7),
     rgba(255, 255, 255, 0.7)
@@ -84,6 +84,17 @@ body {
 #themeButton {
   position: absolute;
   margin: 2em 2em 0 0;
+  right: 70px;
+  top: 0;
+  color: var(--fg);
+  border: none;
+  cursor: pointer;
+  background-color: #00000000;
+}
+
+#settingsButton {
+  position: absolute;
+  margin: 2em 2em 0 0;
   right: 0;
   top: 0;
   color: var(--fg);
@@ -93,6 +104,11 @@ body {
 }
 
 #themeIcon {
+  width: 25px;
+  height: 25px;
+}
+
+#settingsIcon {
   width: 25px;
   height: 25px;
 }
@@ -119,8 +135,8 @@ body {
 }
 
 .timeBlock {
-  grid-row: 1 / span 2;
-  grid-column: 1 / span 2;
+  grid-row: 1;
+  grid-column: 1 ;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -128,8 +144,8 @@ body {
 }
 
 .weatherBlock {
-  grid-column: 3 / span 2;
-  grid-row: 1 / span 2;
+  grid-column: 4 / span 5;
+  grid-row: 0 / span 2;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -361,3 +377,45 @@ body {
     padding-right: 100px;
   }
 }
+
+.group {
+  display: flex;
+  line-height: 28px;
+  align-items: center;
+  position: absolute; /* Change relative to absolute for precise positioning */
+  top: 40%; /* Adjust this value to move the bar vertically */
+  left: 50%; /* Adjust this value to move the bar horizontally */
+  transform: translate(-50%, -50%); /* Center the bar */
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+
+.input {
+  height: 40px;
+  line-height: 28px;
+  padding: 0 1rem;
+  width: 100%;
+  padding-left: 2.5rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  outline: none;
+  background-color: #D9E8D8;
+  color: #0d0c22;
+  box-shadow: 0 0 5px #C1D9BF, 0 0 0 10px #f5f5f5eb;
+  transition: .3s ease;
+}
+
+.input::placeholder {
+  color: #777;
+}
+
+.icon {
+  position: absolute;
+  left: 1rem;
+  fill: #777;
+  width: 1rem;
+  height: 1rem;
+}
+

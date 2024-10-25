@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "name": "Bento Epitech",
+  "version": "1.2.8",
+  "description": "🍱 Minimalist, elegant and hackable startpage inspired by the Bento box!",
+  "author": "Andysags",
+  "license": "ISC",
+  "browser_action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "assets/icons/Bento32.jpg",
+      "48": "assets/icons/Bento64.jpg",
+      "128": "assets/icons/Bento128.jpg"
+    }
+  },
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "webNavigation"
+  ],
+  "icons": {
+    "16": "assets/icons/Bento32.jpg",
+    "48": "assets/icons/Bento64.jpg",
+    "128": "assets/icons/Bento128.jpg"
+  },
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "content_security_policy": "script-src 'self' 'wasm-unsafe-eval' https://unpkg.com https://www.google.com; object-src 'self'"
+}
