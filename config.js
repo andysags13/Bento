@@ -55,37 +55,37 @@ const CONFIG = {
 			id: '1',
 			name: 'Github',
 			icon: localStorage.getItem(`icon1Name`) || 'github',
-			link: localStorage.getItem(`icon1Link`) || 'github.com/',
+			link: localStorage.getItem(`icon1Link`) || 'https://github.com/',
 		},
 		{
 			id: '2',
 			name: 'Mail',
 			icon: localStorage.getItem(`icon2Name`) || 'mail',
-			link: localStorage.getItem(`icon2Link`) || 'outlook.com/',
+			link: localStorage.getItem(`icon2Link`) || 'https://outlook.com/',
 		},
 		{
 			id: '3',
 			name: 'Todoist',
 			icon: localStorage.getItem(`icon3Name`) || 'calendar-plus',
-			link: localStorage.getItem(`icon3Link`) || 'www.notion.so/',
+			link: localStorage.getItem(`icon3Link`) || 'https://www.notion.so/',
 		},
 		{
 			id: '4',
 			name: 'Intranet',
 			icon: localStorage.getItem(`icon4Name`) || 'graduation-cap',
-			link: localStorage.getItem(`icon4Link`) || 'intra.epitech.eu/',
+			link: localStorage.getItem(`icon4Link`) || 'https://intra.epitech.eu/',
 		},
 		{
 			id: '5',
 			name: 'My_Epitech',
 			icon: localStorage.getItem(`icon5Name`) || 'disc',
-			link: localStorage.getItem(`icon5Link`) || 'my.epitech.eu/',
+			link: localStorage.getItem(`icon5Link`) || 'https://my.epitech.eu/',
 		},
 		{
 			id: '6',
 			name: 'Youtube',
 			icon: localStorage.getItem(`icon6Name`) || 'youtube',
-			link: localStorage.getItem(`icon6Link`) || 'youtube.com/',
+			link: localStorage.getItem(`icon6Link`) || 'https://youtube.com/',
 		},
 	],
 
@@ -140,19 +140,19 @@ const CONFIG = {
 			links: [
 				{
 					name: localStorage.getItem(`iconlist1Link1Name1`) || 'New Gen Bénin 🇧🇯 ',
-					link: localStorage.getItem(`iconlist1Link1`) || 'open.spotify.com/playlist/01IQz6djth4BPsAYKDn8e3?si=Hzxa3yP2T4K_MEowkZmzXA',
+					link: localStorage.getItem(`iconlist1Link1`) || 'https://open.spotify.com/playlist/01IQz6djth4BPsAYKDn8e3?si=Hzxa3yP2T4K_MEowkZmzXA',
 				},
 				{
 					name: localStorage.getItem(`iconlist1Link2Name2`) || 'Late Night Vibes',
-					link: localStorage.getItem(`iconlist1Link2`) || 'open.spotify.com/playlist/2DQ2KHEaZcT4IdcaXDSaag?si=84ad3b1b9f6a40c1',
+					link: localStorage.getItem(`iconlist1Link2`) || 'https://open.spotify.com/playlist/2DQ2KHEaZcT4IdcaXDSaag?si=84ad3b1b9f6a40c1',
 				},
 				{
 					name: localStorage.getItem(`iconlist1Link3Name3`) || 'Sweet Afro_vibes',
-					link: localStorage.getItem(`iconlist1Link3`) || 'open.spotify.com/playlist/14mrd6kzGFXd1LL57oizMG?si=nyizLlzARJ-AXTqqQoscEQ',
+					link: localStorage.getItem(`iconlist1Link3`) || 'https://open.spotify.com/playlist/14mrd6kzGFXd1LL57oizMG?si=nyizLlzARJ-AXTqqQoscEQ',
 				},
 				{
 					name: localStorage.getItem(`iconlist1Link4Name4`) || 'Afropiano Vibes Only !',
-					link: localStorage.getItem(`iconlist1Link4`) || 'open.spotify.com/playlist/0aCBFNpLrqijpfgC12w0vb?si=279eaadb76594d76',
+					link: localStorage.getItem(`iconlist1Link4`) || 'https://open.spotify.com/playlist/0aCBFNpLrqijpfgC12w0vb?si=279eaadb76594d76',
 				},
 			],
 		},
@@ -162,19 +162,19 @@ const CONFIG = {
 			links: [
 				{
 					name: localStorage.getItem(`iconlist2Link1Name1`) || 'Google',
-					link: localStorage.getItem(`iconlist2Link1`) || 'www.google.com/',
+					link: localStorage.getItem(`iconlist2Link1`) || 'https://www.google.com/',
 				},
 				{
 					name: localStorage.getItem(`iconlist2Link2Name2`) || 'Moodle',
-					link: localStorage.getItem(`iconlist2Link2`) || 'moodle.epitest.eu/login/index.php',
+					link: localStorage.getItem(`iconlist2Link2`) || 'https://moodle.epitest.eu/login/index.php',
 				},
 				{
 					name: localStorage.getItem(`iconlist2Link3Name3`) || 'Google Traduction',
-					link: localStorage.getItem(`iconlist2Link3`) || 'translate.google.com',
+					link: localStorage.getItem(`iconlist2Link3`) || 'https://translate.google.com',
 				},
 				{
 					name: localStorage.getItem(`iconlist2Link4Name4`) || 'Canva',
-					link: localStorage.getItem(`iconlist2Link4`) || 'www.canva.com/',
+					link: localStorage.getItem(`iconlist2Link4`) || 'https://www.canva.com/',
 				},
 			],
 		},
