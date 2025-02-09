@@ -52,6 +52,10 @@
 
 /* S T Y L E S */
 
+.lighttheme .button-name {
+  color: black;
+}
+
 * {
   margin: 0;
   padding: 0;

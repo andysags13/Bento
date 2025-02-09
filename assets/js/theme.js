@@ -61,3 +61,31 @@ if (CONFIG.changeThemeByHour && CONFIG.autoChangeTheme && !CONFIG.changeThemeByO
 		disableDark();
 	}
 }
+
+
+// const enableLight = () => {
+// 	document.body.classList.remove('darktheme');
+// 	document.body.classList.add('lighttheme');
+// 	localStorage.setItem('darkTheme', null);
+// 	themeToggle.innerHTML = `<i id="themeButton__icon" icon-name="moon"></i>`;
+// 	lucide.createIcons();
+//   };
+  
+//   const disableLight = () => {
+// 	document.body.classList.remove('lighttheme');
+// 	document.body.classList.add('darktheme');
+// 	localStorage.setItem('darkTheme', 'enabled');
+// 	themeToggle.innerHTML = `<i id="themeButton__icon" icon-name="sun"></i>`;
+// 	lucide.createIcons();
+//   };
+  
+//   // ... existing code ...
+  
+//   themeToggle.addEventListener('click', () => {
+// 	darkTheme = localStorage.getItem('darkTheme');
+// 	if (darkTheme !== 'enabled') {
+// 	  disableLight();
+// 	} else {
+// 	  enableLight();
+// 	}
+//   });

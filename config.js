@@ -59,13 +59,13 @@ const CONFIG = {
 		},
 		{
 			id: '2',
-			name: 'Mail',
+			name: 'Outlook',
 			icon: localStorage.getItem(`icon2Name`) || 'mail',
 			link: localStorage.getItem(`icon2Link`) || 'https://outlook.com/',
 		},
 		{
 			id: '3',
-			name: 'Todoist',
+			name: 'Notion',
 			icon: localStorage.getItem(`icon3Name`) || 'calendar-plus',
 			link: localStorage.getItem(`icon3Link`) || 'https://www.notion.so/',
 		},
@@ -140,7 +140,7 @@ const CONFIG = {
 			links: [
 				{
 					name: localStorage.getItem(`iconlist1Link1Name1`) || 'New Gen Bénin 🇧🇯 ',
-					link: localStorage.getItem(`iconlist1Link1`) || 'https://open.spotify.com/playlist/01IQz6djth4BPsAYKDn8e3?si=Hzxa3yP2T4K_MEowkZmzXA',
+					link: localStorage.getItem(`iconlist1Link1`) || 'https://open.spotify.com/playlist/01IQz6djth4BPsAYKDn8e3?si=b575b0bd4bfe4846',
 				},
 				{
 					name: localStorage.getItem(`iconlist1Link2Name2`) || 'Late Night Vibes',
