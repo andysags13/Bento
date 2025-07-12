@@ -1,353 +1,134 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Settings</title>
-    <!-- <link rel="stylesheet" href="app.css"> -->
-    <script src="assets/js/settings.js"></script>
+    <title>Paramètres - Bento</title>
+    <link rel="stylesheet" href="settings.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<style>
-        body {
-        text-align: center; 
-    }
-/* 
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-} */
-
-/* From Uiverse.io by Satwinder04 */ 
-.input-container {
-  position: relative;
-  margin: 50px auto;
-  width: 200px;
-}
-
-.input-container input[type="text"] {
-  font-size: 20px;
-  width: 100%;
-  border: none;
-  border-bottom: 2px solid #ccc;
-  padding: 5px 0;
-  background-color: transparent;
-  outline: none;
-  color: #ffffff;
-}
-
-.input-container .label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  color: #ccc;
-  transition: all 0.3s ease;
-  pointer-events: none;
-}
-
-.input-container input[type="text"]:focus ~ .label,
-.input-container input[type="text"]:valid ~ .label {
-  top: -20px;
-  font-size: 16px;
-  color: #ffffff;
-}
-
-.input-container .underline {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 2px;
-  width: 100%;
-  background-color: #ffffff;
-  transform: scaleX(0);
-  transition: all 0.3s ease;
-}
-
-.input-container input[type="text"]:focus ~ .underline,
-.input-container input[type="text"]:valid ~ .underline {
-  transform: scaleX(1);
-}
-
-</style>
 <body>
-    <h1>Paramètres</h1>
-    <main>
-        <section>
-            <h2>Général</h2>
-            <div class="input-container">
-                <input type="text" id="name" name="name" value="guy">
-                <label for="name" class="label">Entrez votre nom</label>
-                <div class="underline"></div>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1 class="title">
+                    <span class="title-icon">⚙️</span>
+                    Paramètres
+                </h1>
+                <p class="subtitle">Personnalisez votre page d'accueil Bento</p>
             </div>
-        </section>
-        <section>
-            <h2>Liens</h2>
-            <div id="linksSettings">
-                <div>
-                    <div class="input-container">
-                        <input type="text" id="icon1Name" required="">
-                        <label for="icon1Name" class="label">Nom du bouton 1</label>
-                        <div class="underline"></div>
-                      </div>
-                    <div class="input-container">
-                      <input type="text" id="icon1Link" required="">
-                      <label for="icon1Link" class="label">Lien du bouton 1</label>
-                      <div class="underline"></div>
-                    </div>
-                    
-                    
+        </header>
 
+        <main class="main-content">
+            <!-- Section Général -->
+            <section class="settings-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="section-icon">👤</span>
+                        Général
+                    </h2>
+                    <p class="section-description">Informations de base de votre profil</p>
                 </div>
-                <div>
+                <div class="form-group">
                     <div class="input-container">
-                        <input type="text" id="icon2Name" required="">
-                        <label for="icon2Name" class="label">Nom du bouton 2</label>
-                        <div class="underline"></div>
-                      </div>
-                    <div class="input-container">
-                      <input type="text" id="icon2Link" required="">
-                      <label for="icon2Link" class="label">Lien du bouton 2</label>
-                      <div class="underline"></div>
-                    </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="input-container">
-                        <input type="text" id="icon3Name" required="">
-                        <label for="icon3Name" class="label">Nom du bouton 3</label>
-                        <div class="underline"></div>
-                      </div>
-                    <div class="input-container">
-                      <input type="text" id="icon3Link" required="">
-                      <label for="icon3Link" class="label">Lien du bouton 3</label>
-                      <div class="underline"></div>
-                    </div>
+                        <input type="text" id="name" name="name" class="form-input" required>
+                        <label for="name" class="form-label">Votre nom</label>
+                        <div class="input-underline"></div>
                     </div>
                 </div>
-                <div>
-                    <div class="input-container">
-                        <input type="text" id="icon4Name" required="">
-                        <label for="icon4Name" class="label">Nom du bouton 4</label>
-                        <div class="underline"></div>
-                      </div>
-                    <div class="input-container">
-                      <input type="text" id="icon4Link" required="">
-                      <label for="icon4Link" class="label">Lien du bouton 4</label>
-                      <div class="underline"></div>
-                    </div>
+            </section>
+
+            <!-- Section Liens principaux -->
+            <section class="settings-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="section-icon">🔗</span>
+                        Liens principaux
+                    </h2>
+                    <p class="section-description">Configurez vos liens rapides principaux</p>
                 </div>
-                <div>
-                    <div class="input-container">
-                        <input type="text" id="icon5Name" required="">
-                        <label for="icon5Name" class="label">Nom du bouton 5</label>
-                        <div class="underline"></div>
-                      </div>
-                    <div class="input-container">
-                      <input type="text" id="icon5Link" required="">
-                      <label for="icon5Link" class="label">Lien du bouton 5</label>
-                      <div class="underline"></div>
-                    </div>
-                    </div>
+                <div class="links-grid" id="linksSettings">
+                    <!-- Les 6 liens principaux seront générés dynamiquement -->
                 </div>
-                <div>
+            </section>
+
+            <!-- Section Liste 1 -->
+            <section class="settings-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="section-icon">📋</span>
+                        Liste 1
+                    </h2>
+                    <p class="section-description">Première liste de liens groupés</p>
+                </div>
+                <div class="list-container" id="links1Settings">
+                    <div class="list-header">
                     <div class="input-container">
-                        <input type="text" id="icon6Name" required="">
-                        <label for="icon6Name" class="label">Nom du bouton 6</label>
-                        <div class="underline"></div>
+                            <input type="text" id="iconlist1Name" class="form-input" required>
+                            <label for="iconlist1Name" class="form-label">Nom de l'icône</label>
+                            <div class="input-underline"></div>
                       </div>
-                    <div class="input-container">
-                      <input type="text" id="icon6Link" required="">
-                      <label for="icon6Link" class="label">Lien du bouton 6</label>
-                      <div class="underline"></div>
                     </div>
-                    </div>
+                    <div class="list-items">
+                        <!-- Les 4 liens de la liste 1 seront générés dynamiquement -->
                 </div>
             </div>
         </section>
-        <section>
-            <h2>Liens - Liste 1</h2>
-            <div id="links1Settings">
-                <div class="input-container">
-                    <input type="text" id="iconlist1Name" required="">
-                    <label for="iconlist1Name" class="label">Nom de l'icône de la liste 1</label>
-                    <div class="underline"></div>
-                  </div>
-                <div>
+
+            <!-- Section Liste 2 -->
+            <section class="settings-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="section-icon">📝</span>
+                        Liste 2
+                    </h2>
+                    <p class="section-description">Deuxième liste de liens groupés</p>
+                </div>
+                <div class="list-container" id="links2Settings">
+                    <div class="list-header">
                     <div class="input-container">
-                        <input type="text" id="iconlist1Link1" required="">
-                        <label for="iconlist1Link1" class="label">Nom du lien 1</label>
-                        <div class="underline"></div>
-                      </div>
-                    <div class="input-container">
-                      <input type="text" id="iconlist1LinkName1" required="">
-                      <label for="iconlist1LinkName1" class="label">Lien 1</label>
-                      <div class="underline"></div>
+                            <input type="text" id="iconlist2Name" class="form-input" required>
+                            <label for="iconlist2Name" class="form-label">Nom de l'icône</label>
+                            <div class="input-underline"></div>
                     </div>
+                    </div>
+                    <div class="list-items">
+                        <!-- Les 4 liens de la liste 2 seront générés dynamiquement -->
                     </div>
                 </div>
-                <div>
-                    <div class="input-container">
-                        <input type="text" id="iconlist1Link2" required="">
-                        <label for="iconlist1Link2" class="label">Nom du lien 2</label>
-                        <div class="underline"></div>
-                      </div>
-                    <div class="input-container">
-                      <input type="text" id="iconlist1LinkName2" required="">
-                      <label for="iconlist1LinkName2" class="label">Lien 2</label>
-                      <div class="underline"></div>
-                    </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="input-container">
-                        <input type="text" id="iconlist1Link3" required="">
-                        <label for="iconlist1Link3" class="label">Nom du lien 3</label>
-                        <div class="underline"></div>
-                      </div>
-                    <div class="input-container">
-                      <input type="text" id="iconlist1LinkName3" required="">
-                      <label for="iconlist1LinkName3" class="label">Lien 3</label>
-                      <div class="underline"></div>
-                    </div>
-                </div>
-                <div>
-                    <div class="input-container">
-                        <input type="text" id="iconlist1Link4" required="">
-                        <label for="iconlist1Link4" class="label">Nom du lien 4</label>
-                        <div class="underline"></div>
-                      </div>
-                    <div class="input-container">
-                      <input type="text" id="iconlist1LinkName4" required="">
-                      <label for="iconlist1LinkName4" class="label">Lien 4</label>
-                      <div class="underline"></div>
-                    </div>
-                </div>
+            </section>
+
+            <!-- Boutons d'action -->
+            <div class="action-buttons">
+                <button type="button" id="resetSettings" class="btn btn-secondary">
+                    <span class="btn-icon">🔄</span>
+                    Réinitialiser
+                </button>
+                <button type="button" id="saveSettings" class="btn btn-primary">
+                    <span class="btn-icon">💾</span>
+                    Enregistrer
+                </button>
             </div>
-        </section>
-        <section>
-            <h2>Liens - Liste 2</h2>
-            <div id="links2Settings">
-                <div class="input-container">
-                    <input type="text" id="iconlist2Name" required="">
-                    <label for="iconlist2Name" class="label">Nom de l'icône de la liste 2</label>
-                    <div class="underline"></div>
-                  </div>
-                <div>
-                    <div class="input-container">
-                        <input type="text" id="iconlist2Link1" required="">
-                        <label for="iconlist2Link1" class="label">Nom du lien 1</label>
-                        <div class="underline"></div>
-                      </div>
-                    <div class="input-container">
-                      <input type="text" id="iconlist2LinkName1" required="">
-                      <label for="iconlist2LinkName1" class="label">Lien 1</label>
-                      <div class="underline"></div>
-                    </div>
-                </div>
-                <div>
-                    <div class="input-container">
-                        <input type="text" id="iconlist2Link2" required="">
-                        <label for="iconlist2Link2" class="label">Nom du lien 2</label>
-                        <div class="underline"></div>
-                      </div>
-                    <div class="input-container">
-                      <input type="text" id="iconlist2LinkName2" required="">
-                      <label for="iconlist2LinkName2" class="label">Lien 2</label>
-                      <div class="underline"></div>
-                    </div>
-                </div>
-                <div>
-                    <div class="input-container">
-                        <input type="text" id="iconlist2Link3" required="">
-                        <label for="iconlist2Link3" class="label">Nom du lien 3</label>
-                        <div class="underline"></div>
-                      </div>
-                    <div class="input-container">
-                      <input type="text" id="iconlist2LinkName3" required="">
-                      <label for="iconlist2LinkName3" class="label">Lien 3</label>
-                      <div class="underline"></div>
+        </main>
+
+        <footer class="footer">
+            <p class="footer-text">
+                <span class="footer-icon">❤️</span>
+                Créé avec amour par DAYS
+            </p>
+        </footer>
                     </div>
 
-                </div>
-                <div>
-                    <div class="input-container">
-                        <input type="text" id="iconlist2Link4" required="">
-                        <label for="iconlist2Link4" class="label">Nom du lien 4</label>
-                        <div class="underline"></div>
-                      </div>
-                    <div class="input-container">
-                      <input type="text" id="iconlist2LinkName4" required="">
-                      <label for="iconlist2LinkName4" class="label">Lien 4</label>
-                      <div class="underline"></div>
+    <!-- Toast de notification -->
+    <div id="toast" class="toast">
+        <div class="toast-content">
+            <span class="toast-icon">✅</span>
+            <span class="toast-message">Paramètres sauvegardés avec succès !</span>
                     </div>
                 </div>
-            </div>
-                </div>
-            </div>
-        </section>
-        <button id="saveSettings" class="button">Enregistrer</button>
-    </main>
-    <footer>
-        <p>&copy; 2024 DAYS</p>
-    </footer>
+
+    <script src="assets/js/settings.js"></script>
 </body>
-
-<style>
-    body {
-  background-color: #1e1e1e;
-  color: #fff;
-}
-
-footer {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 0.8em;
-  color: #888;
-}
-/* From Uiverse.io by gharsh11032000 */ 
-.button {
-  cursor: pointer;
-  position: relative;
-  padding: 10px 24px;
-  font-size: 18px;
-  color: rgb(193, 163, 98);
-  border: 2px solid rgb(193, 163, 98);
-  border-radius: 34px;
-  background-color: transparent;
-  font-weight: 600;
-  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
-  overflow: hidden;
-}
-
-.button::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  margin: auto;
-  width: 50px;
-  height: 50px;
-  border-radius: inherit;
-  scale: 0;
-  z-index: -1;
-  background-color: rgb(193, 163, 98);
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
-}
-
-.button:hover::before {
-  scale: 3;
-}
-
-.button:hover {
-  color: #212121;
-  scale: 1.1;
-  box-shadow: 0 0px 20px rgba(193, 163, 98,0.4);
-}
-
-.button:active {
-  scale: 1;
-}
-
-
-
-</style>
 </html>
