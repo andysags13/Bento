@@ -40,6 +40,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Générer les listes
         generateList('links1Settings', 'iconlist1Name', defaultList1, 'list1');
         generateList('links2Settings', 'iconlist2Name', defaultList2, 'list2');
+        
+        // Charger les nouveaux paramètres
+        loadAdvancedSettings();
     }
 
     function generateMainLinks() {
@@ -250,40 +253,111 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function showToast(message, type = 'success') {
-        const toast = document.getElementById('toast');
-        const toastMessage = toast.querySelector('.toast-message');
-        const toastIcon = toast.querySelector('.toast-icon');
+        // Créer l'élément toast
+        const toast = document.createElement('div');
+        toast.className = `toast toast-${type}`;
+        toast.textContent = message;
         
-        if (!toast) return;
-
-        // Configurer le message et l'icône selon le type
-        toastMessage.textContent = message;
+        // Ajouter au DOM
+        document.body.appendChild(toast);
         
-        switch (type) {
-            case 'success':
-                toastIcon.textContent = '✅';
-                toast.style.borderColor = '#10b981';
-                break;
-            case 'error':
-                toastIcon.textContent = '❌';
-                toast.style.borderColor = '#ef4444';
-                break;
-            case 'info':
-                toastIcon.textContent = 'ℹ️';
-                toast.style.borderColor = '#3b82f6';
-                break;
-            default:
-                toastIcon.textContent = '✅';
-                toast.style.borderColor = '#10b981';
-        }
-
-        // Afficher le toast
-        toast.classList.add('show');
+        // Animation d'entrée
+        setTimeout(() => {
+            toast.classList.add('show');
+        }, 100);
         
-        // Masquer le toast après 3 secondes
+        // Supprimer après 3 secondes
         setTimeout(() => {
             toast.classList.remove('show');
+            setTimeout(() => {
+                document.body.removeChild(toast);
+            }, 300);
         }, 3000);
+    }
+    
+    // Charger les paramètres avancés
+    function loadAdvancedSettings() {
+        // Paramètres d'apparence
+        const autoChangeTheme = localStorage.getItem('autoChangeTheme') === 'true';
+        const changeThemeByOS = localStorage.getItem('changeThemeByOS') === 'true';
+        const imageBackground = localStorage.getItem('imageBackground') === 'true';
+        
+        document.getElementById('autoChangeTheme').checked = autoChangeTheme;
+        document.getElementById('changeThemeByOS').checked = changeThemeByOS;
+        document.getElementById('imageBackground').checked = imageBackground;
+        
+        // Paramètres météo
+        const weatherKey = localStorage.getItem('weatherKey') || '';
+        const weatherUnit = localStorage.getItem('weatherUnit') || 'C';
+        const weatherIcons = localStorage.getItem('weatherIcons') || 'OneDark';
+        const trackLocation = localStorage.getItem('trackLocation') === 'true';
+        
+        document.getElementById('weatherKey').value = weatherKey;
+        document.getElementById('weatherUnit').value = weatherUnit;
+        document.getElementById('weatherIcons').value = weatherIcons;
+        document.getElementById('trackLocation').checked = trackLocation;
+        
+        // Paramètres horloge
+        const twelveHourFormat = localStorage.getItem('twelveHourFormat') === 'true';
+        document.getElementById('twelveHourFormat').checked = twelveHourFormat;
+        
+        // Paramètres comportement
+        const openInNewTab = localStorage.getItem('openInNewTab') === 'true';
+        document.getElementById('openInNewTab').checked = openInNewTab;
+        
+        // Ajouter les écouteurs pour les nouveaux paramètres
+        setupAdvancedEventListeners();
+    }
+    
+    // Configurer les écouteurs pour les paramètres avancés
+    function setupAdvancedEventListeners() {
+        // Paramètres d'apparence
+        document.getElementById('autoChangeTheme').addEventListener('change', function() {
+            localStorage.setItem('autoChangeTheme', this.checked);
+            if (this.checked) {
+                document.getElementById('changeThemeByOS').checked = false;
+                localStorage.setItem('changeThemeByOS', false);
+            }
+        });
+        
+        document.getElementById('changeThemeByOS').addEventListener('change', function() {
+            localStorage.setItem('changeThemeByOS', this.checked);
+            if (this.checked) {
+                document.getElementById('autoChangeTheme').checked = false;
+                localStorage.setItem('autoChangeTheme', false);
+            }
+        });
+        
+        document.getElementById('imageBackground').addEventListener('change', function() {
+            localStorage.setItem('imageBackground', this.checked);
+        });
+        
+        // Paramètres météo
+        document.getElementById('weatherKey').addEventListener('input', function() {
+            localStorage.setItem('weatherKey', this.value);
+        });
+        
+        document.getElementById('weatherUnit').addEventListener('change', function() {
+            localStorage.setItem('weatherUnit', this.value);
+        });
+        
+        document.getElementById('weatherIcons').addEventListener('change', function() {
+            localStorage.setItem('weatherIcons', this.value);
+        });
+        
+        document.getElementById('trackLocation').addEventListener('change', function() {
+            localStorage.setItem('trackLocation', this.checked);
+        });
+        
+        // Paramètres horloge
+        document.getElementById('twelveHourFormat').addEventListener('change', function() {
+            localStorage.setItem('twelveHourFormat', this.checked);
+        });
+        
+        // Paramètres comportement
+        document.getElementById('openInNewTab').addEventListener('change', function() {
+            localStorage.setItem('openInNewTab', this.checked);
+        });
     }
 
     // Animation d'entrée pour les sections
