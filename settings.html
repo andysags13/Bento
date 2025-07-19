@@ -8,15 +8,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
     <div class="container">
         <header class="header">
             <div class="header-content">
-                <h1 class="title">
-                    <span class="title-icon">⚙️</span>
-                    Paramètres
-                </h1>
+                <div class="header-top">
+                    <a href="index.html" class="back-button" aria-label="Retour">
+                        <i data-lucide="arrow-left"></i>
+                    </a>
+                    <h1 class="title">
+                        <span class="title-icon">⚙️</span>
+                        Paramètres
+                    </h1>
+                </div>
                 <p class="subtitle">Personnalisez votre page d'accueil Bento</p>
             </div>
         </header>
@@ -96,6 +102,141 @@
                     </div>
                     <div class="list-items">
                         <!-- Les 4 liens de la liste 2 seront générés dynamiquement -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Apparence -->
+            <section class="settings-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="section-icon">🎨</span>
+                        Apparence
+                    </h2>
+                    <p class="section-description">Personnalisez l'apparence de votre page d'accueil</p>
+                </div>
+                <div class="appearance-grid">
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h3 class="setting-title">Thème automatique</h3>
+                            <p class="setting-desc">Change automatiquement selon l'heure</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="autoChangeTheme">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h3 class="setting-title">Thème système</h3>
+                            <p class="setting-desc">Suit les préférences du système</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="changeThemeByOS">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h3 class="setting-title">Image de fond</h3>
+                            <p class="setting-desc">Afficher l'image d'arrière-plan</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="imageBackground">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Météo -->
+            <section class="settings-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="section-icon">🌤️</span>
+                        Météo
+                    </h2>
+                    <p class="section-description">Configuration de l'affichage météorologique</p>
+                </div>
+                <div class="weather-settings">
+                    <div class="input-container">
+                        <input type="text" id="weatherKey" class="form-input" placeholder="Votre clé API OpenWeatherMap">
+                        <label for="weatherKey" class="form-label">Clé API OpenWeatherMap</label>
+                        <div class="input-underline"></div>
+                    </div>
+                    <div class="settings-row">
+                        <div class="setting-group">
+                            <label for="weatherUnit" class="form-label">Unité de température</label>
+                            <select id="weatherUnit" class="form-select">
+                                <option value="C">Celsius (°C)</option>
+                                <option value="F">Fahrenheit (°F)</option>
+                            </select>
+                        </div>
+                        <div class="setting-group">
+                            <label for="weatherIcons" class="form-label">Style d'icônes</label>
+                            <select id="weatherIcons" class="form-select">
+                                <option value="OneDark">OneDark</option>
+                                <option value="Nord">Nord</option>
+                                <option value="Dark">Dark</option>
+                                <option value="White">White</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h3 class="setting-title">Géolocalisation</h3>
+                            <p class="setting-desc">Utiliser votre position actuelle</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="trackLocation">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Horloge -->
+            <section class="settings-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="section-icon">🕐</span>
+                        Horloge
+                    </h2>
+                    <p class="section-description">Paramètres d'affichage de l'heure</p>
+                </div>
+                <div class="clock-settings">
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h3 class="setting-title">Format 12 heures</h3>
+                            <p class="setting-desc">Afficher l'heure au format AM/PM</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="twelveHourFormat">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Comportement -->
+            <section class="settings-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="section-icon">⚡</span>
+                        Comportement
+                    </h2>
+                    <p class="section-description">Options de navigation et d'interaction</p>
+                </div>
+                <div class="behavior-settings">
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h3 class="setting-title">Ouvrir dans un nouvel onglet</h3>
+                            <p class="setting-desc">Les liens s'ouvrent dans un nouvel onglet</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="openInNewTab">
+                            <span class="toggle-slider"></span>
+                        </label>
                     </div>
                 </div>
             </section>
