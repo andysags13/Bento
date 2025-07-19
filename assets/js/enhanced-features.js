@@ -156,9 +156,9 @@ class EnhancedFeatures {
                 e.preventDefault();
                 const query = e.target.value.trim();
                 if (query) {
+                    // Utilise bien le moteur sélectionné
                     const searchUrl = this.searchEngines[this.currentSearchEngine] + encodeURIComponent(query);
                     const openInNewTab = localStorage.getItem('openInNewTab') === 'true';
-                    
                     if (openInNewTab) {
                         window.open(searchUrl, '_blank');
                     } else {
@@ -193,18 +193,14 @@ class EnhancedFeatures {
     // Moteurs de recherche
     setupSearchEngines() {
         const engines = document.querySelectorAll('.search-engine');
-        
         engines.forEach(engine => {
             engine.addEventListener('click', () => {
                 // Retirer la classe active de tous les moteurs
                 engines.forEach(e => e.classList.remove('active'));
-                
                 // Ajouter la classe active au moteur sélectionné
                 engine.classList.add('active');
-                
                 // Mettre à jour le moteur de recherche actuel
                 this.currentSearchEngine = engine.dataset.engine;
-                
                 // Sauvegarder la préférence
                 localStorage.setItem('preferredSearchEngine', this.currentSearchEngine);
             });
@@ -219,6 +215,14 @@ class EnhancedFeatures {
             if (activeEngine) {
                 activeEngine.classList.add('active');
             }
+        } else {
+            // Par défaut, active Google
+            engines.forEach(e => e.classList.remove('active'));
+            const googleEngine = document.querySelector(`[data-engine="google"]`);
+            if (googleEngine) {
+                googleEngine.classList.add('active');
+            }
+            this.currentSearchEngine = 'google';
         }
     }
 
