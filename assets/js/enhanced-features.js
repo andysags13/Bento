@@ -23,6 +23,7 @@ class EnhancedFeatures {
         this.setupKeyboardShortcuts();
         this.setupSearchEngines();
     }
+    
 
     // Statut de connexion
     setupConnectionStatus() {
@@ -81,7 +82,6 @@ class EnhancedFeatures {
         fullscreenToggle.addEventListener('click', () => {
             if (!document.fullscreenElement) {
                 document.documentElement.requestFullscreen().catch(err => {
-                    console.log(`Erreur lors du passage en plein écran: ${err.message}`);
                 });
             } else {
                 document.exitFullscreen();
@@ -103,8 +103,8 @@ class EnhancedFeatures {
     // Actualisation de la météo
     setupWeatherRefresh() {
         const weatherRefresh = document.getElementById('weatherRefresh');
-        
-        weatherRefresh.addEventListener('click', () => {
+        if (weatherRefresh) {
+            weatherRefresh.addEventListener('click', () => {
             // Déclencher l'actualisation de la météo
             if (window.weather && typeof window.weather.updateWeather === 'function') {
                 window.weather.updateWeather();
@@ -116,6 +116,7 @@ class EnhancedFeatures {
                 weatherRefresh.style.transform = 'rotate(0deg)';
             }, 500);
         });
+        }
     }
 
     // Recherche améliorée
@@ -190,36 +191,75 @@ class EnhancedFeatures {
         }
     }
 
-    // Moteurs de recherche
+    // Moteurs de recherche - Approche simplifiée et robuste
     setupSearchEngines() {
-        const engines = document.querySelectorAll('.search-engine');
         
-        engines.forEach(engine => {
-            engine.addEventListener('click', () => {
-                // Retirer la classe active de tous les moteurs
-                engines.forEach(e => e.classList.remove('active'));
-                
-                // Ajouter la classe active au moteur sélectionné
-                engine.classList.add('active');
-                
-                // Mettre à jour le moteur de recherche actuel
-                this.currentSearchEngine = engine.dataset.engine;
-                
-                // Sauvegarder la préférence
-                localStorage.setItem('preferredSearchEngine', this.currentSearchEngine);
-            });
-        });
-
-        // Charger le moteur de recherche préféré
-        const preferredEngine = localStorage.getItem('preferredSearchEngine');
-        if (preferredEngine && this.searchEngines[preferredEngine]) {
-            this.currentSearchEngine = preferredEngine;
-            engines.forEach(e => e.classList.remove('active'));
-            const activeEngine = document.querySelector(`[data-engine="${preferredEngine}"]`);
-            if (activeEngine) {
-                activeEngine.classList.add('active');
+        // Fonction pour initialiser les moteurs
+        const initEngines = () => {
+            
+            // Vérifier que le conteneur existe
+            const container = document.querySelector('.search-engines');
+            if (!container) {
+                setTimeout(initEngines, 300);
+                return;
             }
-        }
+            
+            // Supprimer tous les anciens événements
+            const newContainer = container.cloneNode(true);
+            container.parentNode.replaceChild(newContainer, container);
+            
+            // Récupérer les nouveaux boutons
+            const engines = newContainer.querySelectorAll('.search-engine');
+            if (engines.length === 0) {
+                setTimeout(initEngines, 300);
+                return;
+            }
+            
+            // Ajouter les événements de manière très simple
+            engines.forEach((engine, index) => {
+                
+                // Forcer les styles
+                engine.style.cursor = 'pointer';
+                engine.style.pointerEvents = 'auto';
+                engine.style.userSelect = 'none';
+                
+                // Gestionnaire d'événement simple
+                 const handleClick = () => {
+                     
+                     // Retirer active de tous
+                     engines.forEach(e => e.classList.remove('active'));
+                     
+                     // Ajouter active au sélectionné
+                     engine.classList.add('active');
+                     
+                     // Sauvegarder
+                     this.currentSearchEngine = engine.dataset.engine;
+                     localStorage.setItem('preferredSearchEngine', this.currentSearchEngine);
+                     
+                 };
+                
+                // Ajouter plusieurs types d'événements
+                engine.onclick = handleClick;
+                engine.addEventListener('click', handleClick);
+                engine.addEventListener('mousedown', handleClick);
+                
+            });
+            
+            // Charger le moteur préféré
+            const preferred = localStorage.getItem('preferredSearchEngine');
+            if (preferred) {
+                const preferredEngine = newContainer.querySelector(`[data-engine="${preferred}"]`);
+                if (preferredEngine) {
+                    engines.forEach(e => e.classList.remove('active'));
+                    preferredEngine.classList.add('active');
+                    this.currentSearchEngine = preferred;
+                }
+            }
+            
+        };
+        
+        // Appeler directement pour test
+        initEngines();
     }
 
     // Raccourcis clavier
@@ -266,5 +306,17 @@ class EnhancedFeatures {
 
 // Initialiser les fonctionnalités améliorées
 document.addEventListener('DOMContentLoaded', () => {
-    new EnhancedFeatures();
+    // Attendre que les icônes Lucide soient créées
+    const initWhenReady = () => {
+        // Vérifier si les icônes Lucide sont créées
+        const hasLucideIcons = document.querySelector('[data-lucide]');
+        if (hasLucideIcons && window.lucide) {
+            new EnhancedFeatures();
+        } else {
+            setTimeout(initWhenReady, 100);
+        }
+    };
+    
+    // Démarrer la vérification
+    setTimeout(initWhenReady, 50);
 });
