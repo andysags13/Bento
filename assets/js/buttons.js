@@ -4,6 +4,7 @@
 // Function to print Button Cards.
 
 const generateFirstButtonsContainer = () => {
+	buttons_1.innerHTML = "";
 	for (const button of CONFIG.firstButtonsContainer) {
 		let item = `
         <a

@@ -12,8 +12,8 @@ const CONFIG = {
 
 	// General
 	name: localStorage.getItem('name') || 'guy',
-	imageBackground: true,
-	openInNewTab: true,
+	imageBackground: localStorage.getItem('imageBackground') === 'true',
+	openInNewTab: localStorage.getItem('openInNewTab') !== 'false',
 	twelveHourFormat: localStorage.getItem('twelveHourFormat') === 'true',
 
 	// Greetings
@@ -23,23 +23,23 @@ const CONFIG = {
 	greetingNight: 'Go to Sleep!',
 
 	// Layout
-	bentoLayout: 'bento', // 'bento', 'lists', 'buttons'
+	bentoLayout: localStorage.getItem('bentoLayout') || 'bento', // 'bento', 'lists', 'buttons'
 
 	// Weather
-	weatherKey: 'InsertYourAPIKeyHere123456', // Write here your API Key
-	weatherIcons: 'OneDark', // 'Onedark', 'Nord', 'Dark', 'White'
-	weatherUnit: 'C', // 'F', 'C'
+	weatherKey: localStorage.getItem('weatherKey') || 'InsertYourAPIKeyHere123456', // Write here your API Key
+	weatherIcons: localStorage.getItem('weatherIcons') || 'OneDark', // 'Onedark', 'Nord', 'Dark', 'White'
+	weatherUnit: localStorage.getItem('weatherUnit') || 'C', // 'F', 'C'
 	language: 'en', // More languages in https://openweathermap.org/current#multi
 
-	trackLocation: true, // If false or an error occurs, the app will use the lat/lon below
+	trackLocation: localStorage.getItem('trackLocation') === 'true', // If false or an error occurs, the app will use the lat/lon below
 	defaultLatitude: '37.775',
 	defaultLongitude: '-122.419',
 
 	// Autochange
-	autoChangeTheme: true,
+	autoChangeTheme: localStorage.getItem('autoChangeTheme') === 'true',
 
 	// Autochange by OS
-	changeThemeByOS: true,
+	changeThemeByOS: localStorage.getItem('changeThemeByOS') === 'true',
 
 	// Autochange by hour options (24hrs format, string must be in: hh:mm)
 	changeThemeByHour: true,
@@ -53,39 +53,39 @@ const CONFIG = {
 	firstButtonsContainer: [
 		{
 			id: '1',
-			name: 'Github',
-			icon: localStorage.getItem(`icon1Name`) || 'github',
-			link: localStorage.getItem(`icon1Link`) || 'https://github.com/',
+			name: localStorage.getItem('button1Name') || 'Github',
+			icon: 'github',
+			link: localStorage.getItem('button1Link') || 'https://github.com/',
 		},
 		{
 			id: '2',
-			name: 'Outlook',
-			icon: localStorage.getItem(`icon2Name`) || 'mail',
-			link: localStorage.getItem(`icon2Link`) || 'https://outlook.com/',
+			name: localStorage.getItem('button2Name') || 'Outlook',
+			icon: 'mail',
+			link: localStorage.getItem('button2Link') || 'https://outlook.com/',
 		},
 		{
 			id: '3',
-			name: 'Notion',
-			icon: localStorage.getItem(`icon3Name`) || 'calendar-plus',
-			link: localStorage.getItem(`icon3Link`) || 'https://www.notion.so/',
+			name: localStorage.getItem('button3Name') || 'Notion',
+			icon: 'calendar-plus',
+			link: localStorage.getItem('button3Link') || 'https://www.notion.so/',
 		},
 		{
 			id: '4',
-			name: 'Intranet',
-			icon: localStorage.getItem(`icon4Name`) || 'graduation-cap',
-			link: localStorage.getItem(`icon4Link`) || 'https://intra.epitech.eu/',
+			name: localStorage.getItem('button4Name') || 'Intranet',
+			icon: 'graduation-cap',
+			link: localStorage.getItem('button4Link') || 'https://intra.epitech.eu/',
 		},
 		{
 			id: '5',
-			name: 'My_Epitech',
-			icon: localStorage.getItem(`icon5Name`) || 'disc',
-			link: localStorage.getItem(`icon5Link`) || 'https://my.epitech.eu/',
+			name: localStorage.getItem('button5Name') || 'My_Epitech',
+			icon: 'disc',
+			link: localStorage.getItem('button5Link') || 'https://my.epitech.eu/',
 		},
 		{
 			id: '6',
-			name: 'Youtube',
-			icon: localStorage.getItem(`icon6Name`) || 'youtube',
-			link: localStorage.getItem(`icon6Link`) || 'https://youtube.com/',
+			name: localStorage.getItem('button6Name') || 'Youtube',
+			icon: 'youtube',
+			link: localStorage.getItem('button6Link') || 'https://youtube.com/',
 		},
 	],
 

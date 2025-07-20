@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
         generateList('links2Settings', 'iconlist2Name', defaultList2, 'list2');
         
         // Charger les nouveaux paramètres
-        loadAdvancedSettings();
+        // loadAdvancedSettings(); // Supprimé car les champs avancés ont été retirés du HTML
     }
 
     function generateMainLinks() {
@@ -60,39 +60,35 @@ document.addEventListener('DOMContentLoaded', function() {
                     <span>Lien principal ${index + 1}</span>
                 </div>
                 <div class="input-container">
-                    <input type="text" id="icon${index + 1}Name" class="form-input" required>
-                    <label for="icon${index + 1}Name" class="form-label">Nom du lien</label>
+                    <input type="text" id="button${index + 1}Name" class="form-input" required>
+                    <label for="button${index + 1}Name" class="form-label">Nom du lien</label>
                     <div class="input-underline"></div>
                 </div>
                 <div class="input-container">
-                    <input type="text" id="icon${index + 1}Link" class="form-input" required>
-                    <label for="icon${index + 1}Link" class="form-label">URL du lien</label>
+                    <input type="text" id="button${index + 1}Link" class="form-input" required>
+                    <label for="button${index + 1}Link" class="form-label">URL du lien</label>
                     <div class="input-underline"></div>
                 </div>
             `;
             linksContainer.appendChild(linkItem);
 
             // Charger les valeurs sauvegardées
-            const nameInput = document.getElementById(`icon${index + 1}Name`);
-            const linkInput = document.getElementById(`icon${index + 1}Link`);
+            const nameInput = document.getElementById(`button${index + 1}Name`);
+            const linkInput = document.getElementById(`button${index + 1}Link`);
             
             if (nameInput) {
-                nameInput.value = localStorage.getItem(`icon${index + 1}Name`) || icon.name;
+                nameInput.value = localStorage.getItem(`button${index + 1}Name`) || icon.name;
             }
             if (linkInput) {
-                linkInput.value = localStorage.getItem(`icon${index + 1}Link`) || icon.link;
+                linkInput.value = localStorage.getItem(`button${index + 1}Link`) || icon.link;
             }
         });
     }
 
     function generateList(containerId, iconNameId, defaultItems, listType) {
         const container = document.getElementById(containerId);
-        const iconNameInput = document.getElementById(iconNameId);
-        
-        if (!container || !iconNameInput) return;
-
-        // Charger le nom de l'icône
-        iconNameInput.value = localStorage.getItem(iconNameId) || '';
+        // On ne cherche plus l'input du nom d'icône
+        if (!container) return;
 
         // Générer les éléments de la liste
         const listItemsContainer = container.querySelector('.list-items');
@@ -176,20 +172,20 @@ document.addEventListener('DOMContentLoaded', function() {
         try {
             // Sauvegarder le nom
             const nameInput = document.getElementById('name');
-        if (nameInput) {
-            localStorage.setItem('name', nameInput.value);
-        }
+            if (nameInput) {
+                localStorage.setItem('name', nameInput.value);
+            }
 
             // Sauvegarder les liens principaux
             defaultIcons.forEach((icon, index) => {
-                const nameInput = document.getElementById(`icon${index + 1}Name`);
-                const linkInput = document.getElementById(`icon${index + 1}Link`);
+                const nameInput = document.getElementById(`button${index + 1}Name`);
+                const linkInput = document.getElementById(`button${index + 1}Link`);
                 
                 if (nameInput) {
-                    localStorage.setItem(`icon${index + 1}Name`, nameInput.value);
+                    localStorage.setItem(`button${index + 1}Name`, nameInput.value);
                 }
                 if (linkInput) {
-                    localStorage.setItem(`icon${index + 1}Link`, linkInput.value);
+                    localStorage.setItem(`button${index + 1}Link`, linkInput.value);
                 }
             });
 
@@ -212,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Rediriger après un délai
             setTimeout(() => {
-                window.history.back();
+                window.location.href = "index.html";
             }, 1500);
 
         } catch (error) {
@@ -240,11 +236,8 @@ document.addEventListener('DOMContentLoaded', function() {
             try {
                 // Effacer le localStorage
                 localStorage.clear();
-                
-                // Recharger la page
+                // Recharger la page (le toast ne sert à rien ici)
                 location.reload();
-                
-                showToast('Paramètres réinitialisés', 'info');
             } catch (error) {
                 console.error('Erreur lors de la réinitialisation:', error);
                 showToast('Erreur lors de la réinitialisation', 'error');
@@ -276,89 +269,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Charger les paramètres avancés
-    function loadAdvancedSettings() {
-        // Paramètres d'apparence
-        const autoChangeTheme = localStorage.getItem('autoChangeTheme') === 'true';
-        const changeThemeByOS = localStorage.getItem('changeThemeByOS') === 'true';
-        const imageBackground = localStorage.getItem('imageBackground') === 'true';
-        
-        document.getElementById('autoChangeTheme').checked = autoChangeTheme;
-        document.getElementById('changeThemeByOS').checked = changeThemeByOS;
-        document.getElementById('imageBackground').checked = imageBackground;
-        
-        // Paramètres météo
-        const weatherKey = localStorage.getItem('weatherKey') || '';
-        const weatherUnit = localStorage.getItem('weatherUnit') || 'C';
-        const weatherIcons = localStorage.getItem('weatherIcons') || 'OneDark';
-        const trackLocation = localStorage.getItem('trackLocation') === 'true';
-        
-        document.getElementById('weatherKey').value = weatherKey;
-        document.getElementById('weatherUnit').value = weatherUnit;
-        document.getElementById('weatherIcons').value = weatherIcons;
-        document.getElementById('trackLocation').checked = trackLocation;
-        
-        // Paramètres horloge
-        const twelveHourFormat = localStorage.getItem('twelveHourFormat') === 'true';
-        document.getElementById('twelveHourFormat').checked = twelveHourFormat;
-        
-        // Paramètres comportement
-        const openInNewTab = localStorage.getItem('openInNewTab') === 'true';
-        document.getElementById('openInNewTab').checked = openInNewTab;
-        
-        // Ajouter les écouteurs pour les nouveaux paramètres
-        setupAdvancedEventListeners();
-    }
+    // loadAdvancedSettings(); // Supprimé car les champs avancés ont été retirés du HTML
     
     // Configurer les écouteurs pour les paramètres avancés
-    function setupAdvancedEventListeners() {
-        // Paramètres d'apparence
-        document.getElementById('autoChangeTheme').addEventListener('change', function() {
-            localStorage.setItem('autoChangeTheme', this.checked);
-            if (this.checked) {
-                document.getElementById('changeThemeByOS').checked = false;
-                localStorage.setItem('changeThemeByOS', false);
-            }
-        });
-        
-        document.getElementById('changeThemeByOS').addEventListener('change', function() {
-            localStorage.setItem('changeThemeByOS', this.checked);
-            if (this.checked) {
-                document.getElementById('autoChangeTheme').checked = false;
-                localStorage.setItem('autoChangeTheme', false);
-            }
-        });
-        
-        document.getElementById('imageBackground').addEventListener('change', function() {
-            localStorage.setItem('imageBackground', this.checked);
-        });
-        
-        // Paramètres météo
-        document.getElementById('weatherKey').addEventListener('input', function() {
-            localStorage.setItem('weatherKey', this.value);
-        });
-        
-        document.getElementById('weatherUnit').addEventListener('change', function() {
-            localStorage.setItem('weatherUnit', this.value);
-        });
-        
-        document.getElementById('weatherIcons').addEventListener('change', function() {
-            localStorage.setItem('weatherIcons', this.value);
-        });
-        
-        document.getElementById('trackLocation').addEventListener('change', function() {
-            localStorage.setItem('trackLocation', this.checked);
-        });
-        
-        // Paramètres horloge
-        document.getElementById('twelveHourFormat').addEventListener('change', function() {
-            localStorage.setItem('twelveHourFormat', this.checked);
-        });
-        
-        // Paramètres comportement
-        document.getElementById('openInNewTab').addEventListener('change', function() {
-            localStorage.setItem('openInNewTab', this.checked);
-        });
-    }
+    // setupAdvancedEventListeners(); // Supprimé car les champs avancés ont été retirés du HTML
 
     // Animation d'entrée pour les sections
     function animateSections() {

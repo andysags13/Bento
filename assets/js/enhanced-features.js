@@ -16,7 +16,6 @@ class EnhancedFeatures {
 
     init() {
         this.setupConnectionStatus();
-        this.setupThemeToggle();
         this.setupFullscreenToggle();
         this.setupWeatherRefresh();
         this.setupEnhancedSearch();
@@ -43,36 +42,6 @@ class EnhancedFeatures {
         window.addEventListener('online', updateConnectionStatus);
         window.addEventListener('offline', updateConnectionStatus);
         updateConnectionStatus();
-    }
-
-    // Basculement de thème
-    setupThemeToggle() {
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = document.getElementById('themeIcon');
-        const body = document.body;
-
-        themeToggle.addEventListener('click', () => {
-            if (body.classList.contains('darktheme')) {
-                body.classList.remove('darktheme');
-                body.classList.add('lighttheme');
-                themeIcon.setAttribute('data-lucide', 'moon');
-                localStorage.setItem('theme', 'light');
-            } else {
-                body.classList.remove('lighttheme');
-                body.classList.add('darktheme');
-                themeIcon.setAttribute('data-lucide', 'sun');
-                localStorage.setItem('theme', 'dark');
-            }
-            lucide.createIcons();
-        });
-
-        // Charger le thème sauvegardé
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'light') {
-            body.classList.remove('darktheme');
-            body.classList.add('lighttheme');
-            themeIcon.setAttribute('data-lucide', 'moon');
-        }
     }
 
     // Plein écran
